@@ -28,7 +28,7 @@ LGBTQ1 = filter(FinalData, FinalData$LGBTQ == 'gay')
 LGBTQ2 = filter(FinalData, FinalData$LGBTQ == 'straight')
 Druggies1 = filter(FinalData, FinalData$DrugUser == 'no')
 Druggies2 = filter(FinalData, FinalData$DrugUser == 'yes')
-
+ 
 ```
 
 # Introduction
