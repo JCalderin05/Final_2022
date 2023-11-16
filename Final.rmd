@@ -1,6 +1,6 @@
 ---
 title: "Covid91 vaccine study Final2023"
-author: "Put your name here!"
+author: "Joel Calderin"
 output: 
   html_document:
     number_sections: true
@@ -31,6 +31,10 @@ A new  preventative vaccine (covid921) is under test in clinical trials. Given t
 
 
 ## LGBTQ
+```{r}
+library(dplyr)
+```
+
 
 
 
