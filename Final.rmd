@@ -28,6 +28,7 @@ LGBTQ1 = filter(FinalData, FinalData$LGBTQ == 'gay')
 LGBTQ2 = filter(FinalData, FinalData$LGBTQ == 'straight')
 Druggies1 = filter(FinalData, FinalData$DrugUser == 'no')
 Druggies2 = filter(FinalData, FinalData$DrugUser == 'yes')
+Infected1 = filter(FinalData, FinalData$DrugUser == 'yes')
  
 ```
 
@@ -53,14 +54,26 @@ Both variables, males and treatment, are categorical. The COVID921 effectiveness
 
 ## Graphical Results
 
+```{r}
+barchartGC(~infected + treatment,data=Males, type="percent")
+```
 
 
 ## Numerical Results
 
+```{r}
+table1 <- xtabs(~infected + treatment, data=Males)
+rowPerc(table1)
+```
 
 
 ## Inferential Results
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
 
 # Females
@@ -81,6 +94,9 @@ $H_A$ There is a significant difference in the effectiveness of the COVID921 vac
 
 ## Graphical Results
 
+```{r}
+barchartGC(~infected + treatment,data=Females, type="percent")
+```
 
 
 ## Numerical Results
@@ -107,6 +123,11 @@ $H_A$ There is a significant difference in the effectiveness of the COVID921 vac
 
 ## Graphical Results
 
+```{r}
+barchartGC(~infected + treatment,data=LGBTQ1, type="percent")
+barchartGC(~infected + treatment,data=LGBTQ2, type="percent")
+```
+
 
 
 ## Numerical Results
@@ -132,6 +153,7 @@ $H_A$ There is a significant difference in the effectiveness of the COVID921 vac
 
 
 ## Graphical Results
+
 
 
 
