@@ -20,62 +20,127 @@ FinalData <- FinalData %>%
 mutate(across(where(is.character), as.factor))
 ```
 
+```{r}
+library(dplyr)
+Males = filter(FinalData, FinalData$sex == 'M')
+Females = filter(FinalData, FinalData$sex == 'F')
+LGBTQ1 = filter(FinalData, FinalData$LGBTQ == 'gay')
+LGBTQ2 = filter(FinalData, FinalData$LGBTQ == 'straight')
+Druggies1 = filter(FinalData, FinalData$DrugUser == 'no')
+Druggies2 = filter(FinalData, FinalData$DrugUser == 'yes')
+
+```
+
 # Introduction
 
 A new  preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
 
-## Males
+# Males
+
+$H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine for the male population.
+
+$H_A$ There is a significant difference in the effectiveness of the COVID921 vaccine for the male population.
+
 
 ## Methods
 
+Both variables, males and treatment, are categorical. The COVID921 effectiveness will be our response variable. 
+
+
 ## Results
+
+
 
 ## Graphical Results
 
+
+
 ## Numerical Results
 
+
+
 ## Inferential Results
+
+
 
 # Females
 
+$H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine for the female population.
+
+$H_A$ There is a significant difference in the effectiveness of the COVID921 vaccine for the female population.
+
+
+
 ## Methods
+
+
 
 ## Results
 
+
+
 ## Graphical Results
+
+
 
 ## Numerical Results
 
+
+
 ## Inferential Results
+
 
 
 # LGBTQ
-```{r}
-library(dplyr)
-```
+
+$H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine for the LGBTQ population.
+
+$H_A$ There is a significant difference in the effectiveness of the COVID921 vaccine for the LGBTQ population.
 
 ## Methods
 
+
+
 ## Results
+
+
 
 ## Graphical Results
 
+
+
 ## Numerical Results
 
+
+
 ## Inferential Results
+
 
 
 # Druggies
 
+$H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine for the druggies population.
+
+$H_A$ There is a significant difference in the effectiveness of the COVID921 vaccine for the druggies population.
+
 ## Methods
+
+
 
 ## Results
 
+
+
 ## Graphical Results
+
+
 
 ## Numerical Results
 
+
+
 ## Inferential Results
+
 
 
 # Overall Results and Conclusions
