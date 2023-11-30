@@ -25,9 +25,8 @@ library(dplyr)
 Males = filter(FinalData, FinalData$sex == 'M')
 Females = filter(FinalData, FinalData$sex == 'F')
 LGBTQ1 = filter(FinalData, FinalData$LGBTQ == 'gay')
-LGBTQ2 = filter(FinalData, FinalData$LGBTQ == 'straight')
-Druggies1 = filter(FinalData, FinalData$DrugUser == 'no')
-Druggies2 = filter(FinalData, FinalData$DrugUser == 'yes')
+DruggiesN = filter(FinalData, FinalData$DrugUser == 'no')
+DruggiesY = filter(FinalData, FinalData$DrugUser == 'yes')
 Infected1 = filter(FinalData, FinalData$DrugUser == 'yes')
  
 ```
@@ -102,8 +101,21 @@ barchartGC(~infected + treatment,data=Females, type="percent")
 ## Numerical Results
 
 
+```{r}
+table1 <- xtabs(~infected + treatment, data=Females)
+rowPerc(table1)
+```
+
+
 
 ## Inferential Results
+
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
 
 
@@ -132,16 +144,27 @@ barchartGC(~infected + treatment,data=LGBTQ1, type="percent")
 ## Numerical Results
 
 
+```{r}
+table1 <- xtabs(~infected + treatment, data=LGBTQ1)
+rowPerc(table1)
+```
+
 
 ## Inferential Results
 
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
 
 # Druggies
 
-$H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine for the druggies population.
+$H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine based on Drug User status.
 
-$H_A$ There is a significant difference in the effectiveness of the COVID921 vaccine for the druggies population.
+$H_A$ There is a significant difference in the effectiveness of the COVID921 vaccine based on Drug User status.
 
 ## Methods
 
@@ -153,15 +176,40 @@ $H_A$ There is a significant difference in the effectiveness of the COVID921 vac
 
 ## Graphical Results
 
+```{r}
+barchartGC(~infected + treatment,data=DruggiesN, type="percent")
+
+```
+
+People who said NO to being drug users.
+
+
+```{r}
+barchartGC(~infected + treatment,data=DruggiesY, type="percent")
+```
+
+People who said YES to being drug users. 
 
 
 
 ## Numerical Results
 
 
+```{r}
+table1 <- xtabs(~infected + treatment, data=DruggiesN)
+rowPerc(table1)
+table1 <- xtabs(~infected + treatment, data=DruggiesY)
+rowPerc(table1)
+```
+
 
 ## Inferential Results
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 
 
 # Overall Results and Conclusions
