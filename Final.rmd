@@ -25,9 +25,7 @@ library(dplyr)
 Males = filter(FinalData, FinalData$sex == 'M')
 Females = filter(FinalData, FinalData$sex == 'F')
 LGBTQ1 = filter(FinalData, FinalData$LGBTQ == 'gay')
-DruggiesN = filter(FinalData, FinalData$DrugUser == 'no')
 DruggiesY = filter(FinalData, FinalData$DrugUser == 'yes')
-Infected1 = filter(FinalData, FinalData$DrugUser == 'yes')
  
 ```
 
@@ -37,16 +35,16 @@ A new  preventative vaccine (covid921) is under test in clinical trials. Given t
 
 # Males
 
-### ### Is the new COVID921 vaccine effective for the Male subgroup?
+### Is the new COVID921 vaccine effective for the Male subgroup?
 
-$H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine for the male population.
+$H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine for the Male population.
 
-$H_A$ There is a significant difference in the effectiveness of the COVID921 vaccine for the male population.
+$H_A$ There is a significant difference in the effectiveness of the COVID921 vaccine for the Male population.
 
 
 ## Methods
 
-Both variables, males and treatment, are categorical. The COVID921 effectiveness will be our response variable. 
+Both variables, sex (Males) and treatment, are categorical. Since they are both categorical, we will use the Cat~Cat rmd helper file.The COVID921 effectiveness will be our response variable. 
 
 
 ## Results
@@ -77,6 +75,10 @@ fisher.test(table1)
 ```
 
 
+## Conclusion (Males)
+
+
+
 # Females
 
 ### Is the new COVID921 vaccine effective for the Female subgroup?
@@ -89,6 +91,7 @@ $H_A$ There is a significant difference in the effectiveness of the COVID921 vac
 
 ## Methods
 
+Both variables, sex (Females) and treatment, are categorical. Since they are both categorical, we will use the Cat~Cat rmd helper file.The COVID921 effectiveness will be our response variable. 
 
 
 ## Results
@@ -122,6 +125,10 @@ fisher.test(table1)
 ```
 
 
+## Conclusion (Females)
+
+
+
 
 # LGBTQ
 
@@ -133,6 +140,7 @@ $H_A$ There is a significant difference in the effectiveness of the COVID921 vac
 
 ## Methods
 
+Both variables, LGBTQ and treatment, are categorical. Since they are both categorical, we will use the Cat~Cat rmd helper file.The COVID921 effectiveness will be our response variable. 
 
 
 ## Results
@@ -166,16 +174,21 @@ fisher.test(table1)
 ```
 
 
+## Conclusion (LGBTQ)
+
+
+
 # Druggies
 
-### Is there a relationship in the effectivness of the new COVID921 vaccine depending on drug user satus?
+### Is the new COVID921 vaccine effective for the Druggies subgroup?
 
-$H_0$ There is NOT a relationship in the effectiveness of the COVID921 vaccine based on Drug User status.
+$H_0$ There is NOT significant difference in the effectiveness of the COVID921 vaccine for the Druggies subgroup.
 
-$H_A$ There is a relationship in the effectiveness of the COVID921 vaccine based on Drug User status.
+$H_A$ There is a significant difference in the effectiveness of the COVID921 vaccine for the Druggies subgroup.
 
 ## Methods
 
+Both variables, Drug User and treatment, are categorical. Since they are both categorical, we will use the Cat~Cat rmd helper file.The COVID921 effectiveness will be our response variable. 
 
 
 ## Results
@@ -183,14 +196,6 @@ $H_A$ There is a relationship in the effectiveness of the COVID921 vaccine based
 
 
 ## Graphical Results
-
-```{r}
-barchartGC(~infected + treatment,data=DruggiesN, type="percent")
-
-```
-
-People who said NO to being drug users.
-
 
 ```{r}
 barchartGC(~infected + treatment,data=DruggiesY, type="percent")
@@ -218,6 +223,11 @@ chisq.test(table1)
 chisqtestGC(table1)
 fisher.test(table1)
 ```
+
+
+
+## Conclusion (Druggies)
+
 
 
 # Overall Results and Conclusions
