@@ -37,6 +37,8 @@ A new  preventative vaccine (covid921) is under test in clinical trials. Given t
 
 # Males
 
+### ### Is the new COVID921 vaccine effective for the Male subgroup?
+
 $H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine for the male population.
 
 $H_A$ There is a significant difference in the effectiveness of the COVID921 vaccine for the male population.
@@ -76,6 +78,8 @@ fisher.test(table1)
 
 
 # Females
+
+### Is the new COVID921 vaccine effective for the Female subgroup?
 
 $H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine for the female population.
 
@@ -121,6 +125,8 @@ fisher.test(table1)
 
 # LGBTQ
 
+### Is the new COVID921 vaccine effective for the LGBTQ subgroup?
+
 $H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine for the LGBTQ population.
 
 $H_A$ There is a significant difference in the effectiveness of the COVID921 vaccine for the LGBTQ population.
@@ -162,9 +168,11 @@ fisher.test(table1)
 
 # Druggies
 
-$H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine based on Drug User status.
+### Is there a relationship in the effectivness of the new COVID921 vaccine depending on drug user satus?
 
-$H_A$ There is a significant difference in the effectiveness of the COVID921 vaccine based on Drug User status.
+$H_0$ There is NOT a relationship in the effectiveness of the COVID921 vaccine based on Drug User status.
+
+$H_A$ There is a relationship in the effectiveness of the COVID921 vaccine based on Drug User status.
 
 ## Methods
 
