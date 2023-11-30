@@ -125,7 +125,6 @@ $H_A$ There is a significant difference in the effectiveness of the COVID921 vac
 
 ```{r}
 barchartGC(~infected + treatment,data=LGBTQ1, type="percent")
-barchartGC(~infected + treatment,data=LGBTQ2, type="percent")
 ```
 
 
