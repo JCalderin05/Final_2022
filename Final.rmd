@@ -110,7 +110,7 @@ Both variables, sex (Females) and treatment, are categorical. Since they are bot
 ```{r}
 barchartGC(~infected + treatment,data=Females, type="percent")
 ```
-
+The bar chart shows the Female subgroup who were infected (covid19) and were NOT infected (OK); along with the treatment they received (placebo/vaccine). Among the Females that were infected, the placebo (blue) was much higher compared to the preventative vaccine (yellow). This means the amount of males that were infected was lower with the vaccine compared to the amount of males who received the placebo. The vaccine could be determined effective for the male subgroup.
 
 ## Numerical Results
 
