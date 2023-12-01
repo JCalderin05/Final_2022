@@ -67,7 +67,7 @@ table1 <- xtabs(~infected + treatment, data=Males)
 rowPerc(table1)
 ```
 
-The table shows the percentage numbers of the males infected (covid19/OK) and their treatment (placebo/vaccine). According to the table, males with the vaccine that were in infected was only around 30%; while males with the placebo were infected at around 70%. For the males that were NOT infected (OK) were about 50/50. Our table determines that there is a difference in effectiveness of the COVID921 vaccine for the male population. 
+The table shows the percentage numbers of the males infected (covid19/OK) and their treatment (placebo/vaccine). According to the table, males with the vaccine that were in infected was only around 30%; while males with the placebo were infected at around 70%. The males that were NOT infected (OK) were about 50/50. Our table determines that there is a difference in effectiveness of the COVID921 vaccine for the male population. 
 
 ## Inferential Results
 
@@ -79,11 +79,11 @@ fisher.test(table1)
 
 
 The Chi-squared test gave a P-Value of 0.0000000000001098 which is significantly less than 0.05. Due to the P-Value being less than 0.05, we reject the Null Hypothesis. 
-The Fisher exact test gave us an odds ratio of 2.24. This estimates that the odds of being infected as a male is 2.24 times more likely with the placebo compared to the vaccine.    
+The Fisher exact test gave us an odds ratio of 2.24. This estimates that the odds of being infected as a male is 2.24 times less likely with the vaccine compared to the placebo.    
 
 ## Conclusion (Males)
 
-Our original question asked us if the new COVID921 vaccine would be effective for the Male subgroup? The bar chart showed us a visual difference in the males infected that got the placebo and the vaccine treatment; the placebo was visually higher than the vaccine. We also looked at numerical results, which concluded that males infected with the placebo was around 70% while males with the vaccine was around 30%. The Chi-squared test gave us a P-Value less than 0.05 so we rejected our Null hypothesis. Finally, our fisher exact test showed that the odds of being an infected male with the placebo was 2.24 times more likely compared to the vaccine. In conclusion, there is a significant difference in the effectiveness of the new COVID921 vaccine for the Male subgroup.
+Our original question asked us if the new COVID921 vaccine would be effective for the Male subgroup? The bar chart showed us a visual difference in the males infected that got the placebo and the vaccine treatment; the placebo was visually higher than the vaccine. We also looked at numerical results, which concluded that males infected with the placebo was around 70% while males with the vaccine was around 30%. The Chi-squared test gave us a P-Value less than 0.05 so we rejected our Null hypothesis. Finally, our fisher exact test showed that the odds of being an infected male with the vaccine was 2.24 times less likely compared to the placebo. In conclusion, there is a significant difference in the effectiveness of the new COVID921 vaccine for the Male subgroup.
 
 
 # Females
@@ -110,7 +110,9 @@ Both variables, sex (Females) and treatment, are categorical. Since they are bot
 ```{r}
 barchartGC(~infected + treatment,data=Females, type="percent")
 ```
-The bar chart shows the Female subgroup who were infected (covid19) and were NOT infected (OK); along with the treatment they received (placebo/vaccine). Among the Females that were infected, the placebo (blue) was much higher compared to the preventative vaccine (yellow). This means the amount of males that were infected was lower with the vaccine compared to the amount of males who received the placebo. The vaccine could be determined effective for the male subgroup.
+
+
+The bar chart shows the Female subgroup who were infected (covid19) and were NOT infected (OK); along with the treatment they received (placebo/vaccine). Among the Females that were infected, the placebo (blue) was much higher compared to the preventative vaccine (yellow). This means the amount of females that were infected was lower with the vaccine compared to the amount of females who received the placebo. The vaccine could be determined effective for the Female subgroup.
 
 ## Numerical Results
 
@@ -120,7 +122,7 @@ table2 <- xtabs(~infected + treatment, data=Females)
 rowPerc(table2)
 ```
 
-
+The table shows the percentage numbers of the females infected (covid19/OK) and their treatment (placebo/vaccine). According to the table, females with the vaccine that were in infected was only 40%; while females with the placebo were infected at 60%. The females that were NOT infected (OK) were about 50/50. Our table determines that there is a difference in effectiveness of the COVID921 vaccine for the Female population.
 
 ## Inferential Results
 
@@ -132,9 +134,12 @@ fisher.test(table2)
 ```
 
 
+The Chi-squared test gave a P-Value of 0.0002732 which is significantly less than 0.05. Due to the P-Value being less than 0.05, we reject the Null Hypothesis. 
+The Fisher exact test gave us an odds ratio of 1.49. This estimates that the odds of being infected as a female is 1.49 times less likely with the vaccine compared to the placebo.
+
 ## Conclusion (Females)
 
-
+Our original question asked us if the new COVID921 vaccine would be effective for the Female subgroup? The bar chart showed us a visual difference in the females infected that got the placebo and the vaccine treatment; the placebo was visually higher than the vaccine. We also looked at numerical results, which concluded that females infected with the placebo was 60% while females with the vaccine was 40%. The Chi-squared test gave us a P-Value less than 0.05 so we rejected our Null hypothesis. Finally, our fisher exact test showed that the odds of being an infected female with the vaccine was 1.49 times less likely compared to the placebo. In conclusion, there is a significant difference in the effectiveness of the new COVID921 vaccine for the Female subgroup.
 
 
 # LGBTQ
@@ -161,6 +166,8 @@ barchartGC(~infected + treatment,data=LGBTQ, type="percent")
 ```
 
 
+The bar chart shows the LGBTQ subgroup who were infected (covid19) and were NOT infected (OK); along with the treatment they received (placebo/vaccine). Among the LGBTQ that were infected, the placebo (blue) was much lower compared to the preventative vaccine (yellow). This means the amount of people in the LGBTQ that were infected was higher with the vaccine compared to the amount of people in the LGBTQ who received the placebo. This tells us that there is a significant difference in the effectiveness; however it is a negative effect. 
+
 
 ## Numerical Results
 
@@ -170,6 +177,7 @@ table3 <- xtabs(~infected + treatment, data=LGBTQ)
 rowPerc(table3)
 ```
 
+The table shows the percentage numbers of the LGBTQ infected (covid19/OK) and their treatment (placebo/vaccine). According to the table, people in the LGBTQ with the vaccine that were in infected was around 85%; while people in the LGBTQ with the placebo were infected around 15%. For the people that were NOT infected (OK), it was about 50/50. Our table determines that there is a difference in effectiveness of the COVID921 vaccine for the LGBTQ population; however the vaccine has a negative impact.
 
 ## Inferential Results
 
@@ -180,9 +188,11 @@ chisqtestGC(table3)
 fisher.test(table3)
 ```
 
+The Chi-squared test gave a P-Value of 0.00000006668 which is significantly less than 0.05.The Fisher exact test gave us an odds ratio of 0.18. Due to the P-Value being less than 0.05, we reject the Null Hypothesis. The results for both our Chi-squared test and fisher exact test determine that there is a difference in the effectiveness of the vaccine for the LGBTQ subgroup. 
 
 ## Conclusion (LGBTQ)
 
+Our original question asked us if the new COVID921 vaccine would be effective for the LGBTQ subgroup? The bar chart showed us a visual difference of the infected people in the LGBTQ subgroup that got the placebo and the vaccine treatment; the vaccine was visually higher than the placebo. We also looked at numerical results, which concluded that infected people in the LGBTQ with the placebo was around 15% while with the vaccine was around 85%. The Chi-squared test and Fisher exact test gave us a P-Value less than 0.05 so we rejected our Null hypothesis. In conclusion, there is a significant difference in the effectiveness of the new COVID921 vaccine for the LGBTQ subgroup.
 
 
 # Druggies
@@ -208,7 +218,7 @@ Both variables, Drug User and treatment, are categorical. Since they are both ca
 barchartGC(~infected + treatment,data=Druggies, type="percent")
 ```
 
-People who said YES to being drug users. 
+The bar chart shows the Druggies subgroup who were infected (covid19) and were NOT infected (OK); along with the treatment they received (placebo/vaccine). Among the druggies that were infected, the placebo (blue) was much lower compared to the preventative vaccine (yellow). This means the amount of druggies that were infected was higher with the vaccine compared to the druggies who received the placebo. This tells us that there is a significant difference in the effectiveness; however it is a negative effect. 
 
 
 
@@ -220,6 +230,7 @@ table4 <- xtabs(~infected + treatment, data=Druggies)
 rowPerc(table4)
 ```
 
+The table shows the percentage numbers of the Druggies infected (covid19/OK) and their treatment (placebo/vaccine). According to the table, druggies with the vaccine that were in infected was around 88%; while druggies with the placebo were infected around 12%. For the druggies that were NOT infected (OK), it was about 50/50. Our table determines that there is a difference in effectiveness of the COVID921 vaccine for the Druggies subgroup; however the vaccine has a negative impact.
 
 ## Inferential Results
 
@@ -229,13 +240,17 @@ chisqtestGC(table4)
 fisher.test(table4)
 ```
 
-
+The Chi-squared test gave a P-Value of 0.000000002842 which is significantly less than 0.05.The Fisher exact test gave us an odds ratio of 0.125. Due to the P-Value being less than 0.05, we reject the Null Hypothesis. The results for both our Chi-squared test and fisher exact test determine that there is a difference in the effectiveness of the vaccine for the Druggies subgroup.
 
 ## Conclusion (Druggies)
 
+Our original question asked us if the new COVID921 vaccine would be effective for the Druggies subgroup? The bar chart showed us a visual difference of the infected druggies that got the placebo and the vaccine treatment; the vaccine was visually higher than the placebo. We also looked at numerical results, which concluded that infected druggies with the placebo was around 12% while with the vaccine was around 88%. The Chi-squared test and Fisher exact test gave us a P-Value less than 0.05 so we rejected our Null hypothesis. In conclusion, there is a significant difference in the effectiveness of the new COVID921 vaccine for the Druggies subgroup.
 
 
 # Overall Results and Conclusions
 
+The overall question was which subgroups should the new preventative vaccine (COVID921) be recommended for? After considering all data and information for the subgroups- males, females, LGBTQ, and Druggies- there are two that I would recommend and two I would not. Although all of the subgroups showed significant differences on the use of the placebo or vaccine; the effectiveness of the subgroups varied. The two subgroups I would recommend the vaccine to would be Males and Females. The reasoning for this is because it was determined that both showed a POSITIVE impact on effectiveness. To elaborate, in both studies the amount of infected people who had the vaccine was lower than the amount of infected people with the placebo. On the contrary, the two subgroups that I would NOT recommend the vaccine for would be the LGBTQ and Druggies. Although we did have a significant difference between the vaccine and placebo, the vaccine had a NEGATIVE impact on effectiveness. The amount of infected people with the vaccine was significantly higher than the placebo in both subgroups.  
+
+In final words, the groups that should take the new preventative vaccine (COVID921) are Males and Females. The groups that should NOT take the new preventative vaccine are LGBTQ and Druggies. 
 
 
