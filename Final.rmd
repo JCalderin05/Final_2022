@@ -24,8 +24,8 @@ mutate(across(where(is.character), as.factor))
 library(dplyr)
 Males = filter(FinalData, FinalData$sex == 'M')
 Females = filter(FinalData, FinalData$sex == 'F')
-LGBTQ1 = filter(FinalData, FinalData$LGBTQ == 'gay')
-DruggiesY = filter(FinalData, FinalData$DrugUser == 'yes')
+LGBTQ = filter(FinalData, FinalData$LGBTQ == 'gay')
+Druggies = filter(FinalData, FinalData$DrugUser == 'yes')
  
 ```
 
@@ -35,7 +35,7 @@ A new  preventative vaccine (covid921) is under test in clinical trials. Given t
 
 # Males
 
-### Is the new COVID921 vaccine effective for the Male subgroup?
+                              Is the new COVID921 vaccine effective for the Male subgroup?
 
 $H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine for the Male population.
 
@@ -44,7 +44,7 @@ $H_A$ There is a significant difference in the effectiveness of the COVID921 vac
 
 ## Methods
 
-Both variables, sex (Males) and treatment, are categorical. Since they are both categorical, we will use the Cat~Cat rmd helper file.The COVID921 effectiveness will be our response variable. 
+Both variables, sex (Males) and treatment, are categorical. Since they are both categorical, we will use the Cat~Cat rmd helper file. The COVID921 effectiveness will be our response variable. 
 
 
 ## Results
@@ -57,6 +57,8 @@ Both variables, sex (Males) and treatment, are categorical. Since they are both 
 barchartGC(~infected + treatment,data=Males, type="percent")
 ```
 
+The bar chart shows the Male subgroup who were infected (covid19) and were NOT infected (OK); along with the treatment they received (placebo/vaccine). Among the Males that were infected, the placebo (blue) was much higher compared to the preventative vaccine (yellow). This means the amount of males that were infected was lower with the vaccine compared to the amount of males who received the placebo. The vaccine could be determined effective for the male subgroup. 
+
 
 ## Numerical Results
 
@@ -65,6 +67,7 @@ table1 <- xtabs(~infected + treatment, data=Males)
 rowPerc(table1)
 ```
 
+The table shows the percentage numbers of the males infected (covid19/OK) and their treatment (placebo/vaccine). According to the table, males with the vaccine that were in infected was only around 30%; while males with the placebo were infected at around 70%. For the males that were NOT infected (OK) were about 50/50. Our table determines that there is a difference in effectiveness of the COVID921 vaccine for the male population. 
 
 ## Inferential Results
 
@@ -75,13 +78,17 @@ fisher.test(table1)
 ```
 
 
+The Chi-squared test gave a P-Value of 0.0000000000001098 which is significantly less than 0.05. Due to the P-Value being less than 0.05, we reject the Null Hypothesis. 
+The Fisher exact test gave us an odds ratio of 2.24. This estimates that the odds of being infected as a male is 2.24 times more likely with the placebo compared to the vaccine.    
+
 ## Conclusion (Males)
 
+Our original question asked us if the new COVID921 vaccine would be effective for the Male subgroup? The bar chart showed us a visual difference in the males infected that got the placebo and the vaccine treatment; the placebo was visually higher than the vaccine. We also looked at numerical results, which concluded that males infected with the placebo was around 70% while males with the vaccine was around 30%. The Chi-squared test gave us a P-Value less than 0.05 so we rejected our Null hypothesis. Finally, our fisher exact test showed that the odds of being an infected male with the placebo was 2.24 times more likely compared to the vaccine. In conclusion, there is a significant difference in the effectiveness of the new COVID921 vaccine for the Male subgroup.
 
 
 # Females
 
-### Is the new COVID921 vaccine effective for the Female subgroup?
+                                  Is the new COVID921 vaccine effective for the Female subgroup?
 
 $H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine for the female population.
 
@@ -109,8 +116,8 @@ barchartGC(~infected + treatment,data=Females, type="percent")
 
 
 ```{r}
-table1 <- xtabs(~infected + treatment, data=Females)
-rowPerc(table1)
+table2 <- xtabs(~infected + treatment, data=Females)
+rowPerc(table2)
 ```
 
 
@@ -119,9 +126,9 @@ rowPerc(table1)
 
 
 ```{r}
-chisq.test(table1)
-chisqtestGC(table1)
-fisher.test(table1)
+chisq.test(table2)
+chisqtestGC(table2)
+fisher.test(table2)
 ```
 
 
@@ -132,7 +139,7 @@ fisher.test(table1)
 
 # LGBTQ
 
-### Is the new COVID921 vaccine effective for the LGBTQ subgroup?
+                                       Is the new COVID921 vaccine effective for the LGBTQ subgroup?
 
 $H_0$ There is NOT a significant difference in the effectiveness of the COVID921 vaccine for the LGBTQ population.
 
@@ -150,7 +157,7 @@ Both variables, LGBTQ and treatment, are categorical. Since they are both catego
 ## Graphical Results
 
 ```{r}
-barchartGC(~infected + treatment,data=LGBTQ1, type="percent")
+barchartGC(~infected + treatment,data=LGBTQ, type="percent")
 ```
 
 
@@ -159,8 +166,8 @@ barchartGC(~infected + treatment,data=LGBTQ1, type="percent")
 
 
 ```{r}
-table1 <- xtabs(~infected + treatment, data=LGBTQ1)
-rowPerc(table1)
+table3 <- xtabs(~infected + treatment, data=LGBTQ)
+rowPerc(table3)
 ```
 
 
@@ -168,9 +175,9 @@ rowPerc(table1)
 
 
 ```{r}
-chisq.test(table1)
-chisqtestGC(table1)
-fisher.test(table1)
+chisq.test(table3)
+chisqtestGC(table3)
+fisher.test(table3)
 ```
 
 
@@ -180,7 +187,7 @@ fisher.test(table1)
 
 # Druggies
 
-### Is the new COVID921 vaccine effective for the Druggies subgroup?
+                                   Is the new COVID921 vaccine effective for the Druggies subgroup?
 
 $H_0$ There is NOT significant difference in the effectiveness of the COVID921 vaccine for the Druggies subgroup.
 
@@ -188,7 +195,7 @@ $H_A$ There is a significant difference in the effectiveness of the COVID921 vac
 
 ## Methods
 
-Both variables, Drug User and treatment, are categorical. Since they are both categorical, we will use the Cat~Cat rmd helper file.The COVID921 effectiveness will be our response variable. 
+Both variables, Drug User and treatment, are categorical. Since they are both categorical, we will use the Cat~Cat rmd helper file. The COVID921 effectiveness will be our response variable. 
 
 
 ## Results
@@ -198,7 +205,7 @@ Both variables, Drug User and treatment, are categorical. Since they are both ca
 ## Graphical Results
 
 ```{r}
-barchartGC(~infected + treatment,data=DruggiesY, type="percent")
+barchartGC(~infected + treatment,data=Druggies, type="percent")
 ```
 
 People who said YES to being drug users. 
@@ -209,19 +216,17 @@ People who said YES to being drug users.
 
 
 ```{r}
-table1 <- xtabs(~infected + treatment, data=DruggiesN)
-rowPerc(table1)
-table1 <- xtabs(~infected + treatment, data=DruggiesY)
-rowPerc(table1)
+table4 <- xtabs(~infected + treatment, data=Druggies)
+rowPerc(table4)
 ```
 
 
 ## Inferential Results
 
 ```{r}
-chisq.test(table1)
-chisqtestGC(table1)
-fisher.test(table1)
+chisq.test(table4)
+chisqtestGC(table4)
+fisher.test(table4)
 ```
 
 
@@ -231,3 +236,6 @@ fisher.test(table1)
 
 
 # Overall Results and Conclusions
+
+
+
